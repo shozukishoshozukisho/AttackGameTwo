@@ -267,7 +267,7 @@ window.onload = function(){
   };
   var saves = {
     action: function(){
-      npc.say("セーブしました")
+      npc.say("セーブしました");
     }
   };
   var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,saves,]
