@@ -1059,7 +1059,7 @@ window.onload = function(){
     shopScene.addChild(shop);
   };
 
-  setGameDataSave() = function(){
+  setGameDataSave = function(){
     game.storable = ['exp', 'level', 'gp', 'inventory'];
     game.saveToLocalStorage = function(){
       for (var i = 0; i < game.storable.leght; i++){
