@@ -265,7 +265,12 @@ window.onload = function(){
       game.pushScene(battleBossScene);
     }
   };
-  var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,,]
+  var saves = {
+    action: function(){
+      npc.say("セーブしました")
+    }
+  };
+  var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,saves,]
   var setBattle = function(){
     battleScene.backgroundColor = '#000';
     var battle = new Group();
@@ -1053,6 +1058,19 @@ window.onload = function(){
     shopScene.backgroundColor = '#000';
     shopScene.addChild(shop);
   };
+
+  setGameDataSave() = function(){
+    game.storable = ['exp', 'level', 'gp', 'inventory'];
+    game.saveToLocalStorage = function(){
+      for (var i = 0; i < game.storable.leght; i++){
+        if (game.storable[i] === 'inventory'){
+          window.localStorage.setItem(game.storable[i],JSON.stringify(player[game.storable[i]]));
+        } else {
+          window.localStorage.setItem(game.storable[i], player[game.storable[i]]);
+        }
+      }
+    };
+  };
     
   game.focusViewport = function(){
     var x = Math.min((game.width  - 16) / 2 - player.x, 0);
@@ -1070,6 +1088,7 @@ window.onload = function(){
     setBattle();
     setBattleTwo();
     setBattleBoss();
+    setGameDataSave();
     player.on('enterframe', function() {
       player.move();
       if (game.input.a) {
