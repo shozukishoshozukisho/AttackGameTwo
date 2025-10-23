@@ -265,7 +265,7 @@ window.onload = function(){
       game.pushScene(battleBossScene);
     }
   };
-  var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle]
+  var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,,]
   var setBattle = function(){
     battleScene.backgroundColor = '#000';
     var battle = new Group();
