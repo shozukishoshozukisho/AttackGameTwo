@@ -281,24 +281,7 @@ window.onload = function(){
       game.saveToLocalStorage();
     };
   };
-  var opens = {
-    action: function(){
-      npc.say("セーブデータを開きました");
-      if (window.localStorage.getItem('exp')) {
-        player.exp = parseInt(window.localStorage.getItem('exp'));
-      };
-      if (window.localStorage.getItem('level')){
-        playeer.level = parseInt(window.localStorage.getItem('level'));
-      };
-      if (window.localStorage.getItem('gp')) {
-        player.gp = parseInt(window.localStorage.getItem('gp'));
-      };
-      if (window.localStorage.getItem('inventory')) {
-        player.inventory = JSON.parse(window.localStorage.getItem('inventory'));
-      };
-    };
-  };
-  var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,saves,opens]
+  var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,saves,]
   var setBattle = function(){
     battleScene.backgroundColor = '#000';
     var battle = new Group();
