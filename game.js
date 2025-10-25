@@ -269,13 +269,16 @@ window.onload = function(){
     action: function(){
       npc.say("セーブしました");
       game.storable = ['exp', 'level', 'gp', 'inventory'];
-      for (var i = 0; i < game.storable.leght; i++){
-        if (game.storable[i] === 'inventory'){
-          window.localStorage.setItem(game.storable[i],JSON.stringify(player[game.storable[i]]));
-        } else {
-          window.localStorage.setItem(game.storable[i], player[game.storable[i]]);
+      game.saveToLocalStorage = function(){
+        for (var i = 0; i < game.storable.leght; i++){
+          if (game.storable[i] === 'inventory'){
+            window.localStorage.setItem(game.storable[i],JSON.stringify(player[game.storable[i]]));
+          } else {
+            window.localStorage.setItem(game.storable[i], player[game.storable[i]]);
+          }
         }
-      }
+      };
+      game.saveToLocalStorage();
     };
   };
   var opens = {
@@ -283,24 +286,16 @@ window.onload = function(){
       npc.say("セーブデータを開きました");
       if (window.localStorage.getItem('exp')) {
         player.exp = parseInt(window.localStorage.getItem('exp'));
-      } else {
-        player.exp = 0;
-      }
+      };
       if (window.localStorage.getItem('level')){
         playeer.level = parseInt(window.localStorage.getItem('level'));
-      } else {
-        player.level = 1;
-      }
+      };
       if (window.localStorage.getItem('gp')) {
         player.gp = parseInt(window.localStorage.getItem('gp'));
-      } else {
-        player.gp = 100;
-      }
+      };
       if (window.localStorage.getItem('inventory')) {
         player.inventory = JSON.parse(window.localStorage.getItem('inventory'));
-      } else {
-        player.inventory = [];
-      }
+      };
     };
   };
   var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,saves,opens]
