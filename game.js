@@ -278,7 +278,6 @@ window.onload = function(){
           }
         }
       };
-      game.saveToLocalStorage();
     };
   };
   var spriteRoles = [,,greeter,,cat,,,,,,,,,,,brawler,uragirimono,BossBattle,saves,]
